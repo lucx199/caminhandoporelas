@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caminhando por Elas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        purple: {
+                            50: '#f5f3ff',
+                            100: '#ede9fe',
+                            200: '#ddd6fe',
+                            300: '#c4b5fd',
+                            400: '#a78bfa',
+                            500: '#8b5cf6',
+                            600: '#7c3aed',
+                            700: '#6d28d9',
+                            800: '#5b21b6',
+                            900: '#4c1d95',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #faf5ff;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
+        }
+        
+        .emergency-card {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .emergency-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        .modal {
+            transition: opacity 0.3s ease;
+        }
+        
+        .modal-content {
+            transition: all 0.3s ease;
+            transform: translateY(-20px);
+        }
+        
+        .modal.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+        
+        .modal.active .modal-content {
+            transform: translateY(0);
+        }
+        
+        .instagram-gradient {
+            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header class="bg-white shadow-md">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <img src="https://i.imgur.com/If5Ld57.png" alt="Caminhando por Elas" class="h-12 mr-3">
+                    <span class="text-xl font-bold text-purple-700">Caminhando por Elas</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#sobre" class="text-gray-700 hover:text-purple-600 font-medium">Sobre</a>
+                    <a href="#ajuda" class="text-gray-700 hover:text-purple-600 font-medium">Canais de Ajuda</a>
+                    <a href="#cartilha" class="text-gray-700 hover:text-purple-600 font-medium">Cartilha</a>
+                    <a href="#contato" class="text-gray-700 hover:text-purple-600 font-medium">Contato</a>
+                </div>
+                <button class="md:hidden focus:outline-none">
+                    <i class="fas fa-bars text-2xl text-gray-700"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white py-20">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6">Violência contra a mulher não é normal!</h1>
+                <p class="text-xl mb-8">Você não está sozinha. Existem redes de apoio e meios para denunciar. Sua vida importa!</p>
+                <div class="flex">
+                    <a href="#ajuda" class="bg-white text-purple-700 font-bold py-3 px-6 rounded-lg text-center hover:bg-gray-100 transition duration-300">
+                        Preciso de ajuda
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Mulheres unidas" class="rounded-lg shadow-2xl max-w-md w-full">
+            </div>
+        </div>
+    </section>
+
+    <!-- Instagram Contact Section -->
+    <section id="contato" class="py-16 bg-purple-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Nos Siga no Instagram</h2>
+            
+            <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="p-8 text-center">
+                    <div class="w-24 h-24 mx-auto mb-6">
+                        <img src="https://i.imgur.com/If5Ld57.png" alt="Caminhando por Elas" class="w-full h-full object-contain">
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">@caminhandoporelas</h3>
+                    <p class="text-gray-600 mb-6">Acompanhe nosso trabalho e fique por dentro das nossas ações contra a violência à mulher.</p>
+                    <a href="https://www.instagram.com/caminhandoporelas/" target="_blank" class="bg-purple-600 text-white font-bold py-3 px-8 rounded-lg inline-block hover:bg-purple-700 transition duration-300">
+                        <i class="fab fa-instagram mr-2"></i> Seguir no Instagram
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="sobre" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Sobre a Violência Contra a Mulher</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-purple-50 p-6 rounded-lg">
+                    <div class="text-purple-600 text-4xl mb-4">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">O que é?</h3>
+                    <p class="text-gray-600">Qualquer ação ou omissão baseada no gênero que cause morte, lesão, sofrimento físico, sexual ou psicológico à mulher, tanto na esfera pública quanto na privada.</p>
+                </div>
+                <div class="bg-purple-50 p-6 rounded-lg">
+                    <div class="text-purple-600 text-4xl mb-4">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Estatísticas</h3>
+                    <p class="text-gray-600">No Brasil, a cada 7 minutos uma mulher é vítima de violência física. A cada 2 horas, uma mulher é vítima de feminicídio. Não podemos nos calar!</p>
+                </div>
+                <div class="bg-purple-50 p-6 rounded-lg">
+                    <div class="text-purple-600 text-4xl mb-4">
+                        <i class="fas fa-gavel"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Lei Maria da Penha</h3>
+                    <p class="text-gray-600">A Lei 11.340/2006 é um marco na proteção das mulheres, criando mecanismos para coibir a violência doméstica e familiar contra a mulher.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Emergency Numbers Section -->
+    <section id="ajuda" class="py-16 bg-purple-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Canais de Ajuda</h2>
+            <div class="grid md:grid-cols-4 gap-6">
+                <!-- 180 -->
+                <div class="emergency-card bg-white p-6 rounded-lg text-center">
+                    <div class="w-24 h-24 mx-auto mb-4 flex items-center justify-center rounded-lg border-4 border-purple-500 p-2">
+                        <img src="https://i.imgur.com/4237tx7.png" alt="Central de Atendimento à Mulher" class="h-full object-contain">
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Central de Atendimento à Mulher</h3>
+                    <p class="text-gray-600 mb-4">Disque 180 para denúncias de violência contra a mulher. O serviço é gratuito e confidencial.</p>
+                    <a href="https://www.gov.br/mulheres/pt-br/ligue180" target="_blank" class="bg-purple-600 text-white py-2 px-4 rounded-lg inline-block hover:bg-purple-700 transition duration-300">
+                        <i class="fas fa-phone mr-2"></i> 180
+                    </a>
+                </div>
+                
+                <!-- 190 -->
+                <div class="emergency-card bg-white p-6 rounded-lg text-center">
+                    <div class="w-24 h-24 mx-auto mb-4 flex items-center justify-center rounded-lg border-4 border-purple-500 p-2">
+                        <img src="https://i.imgur.com/D6l38WQ.jpeg" alt="Polícia Militar" class="h-full object-contain">
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Polícia Militar</h3>
+                    <p class="text-gray-600 mb-4">Disque 190 em casos de emergência ou quando a violência estiver acontecendo.</p>
+                    <div class="bg-purple-600 text-white py-2 px-4 rounded-lg inline-block">
+                        <i class="fas fa-phone mr-2"></i> 190
+                    </div>
+                </div>
+                
+                <!-- 197 -->
+                <div class="emergency-card bg-white p-6 rounded-lg text-center">
+                    <div class="w-24 h-24 mx-auto mb-4 flex items-center justify-center rounded-lg border-4 border-purple-500 p-2">
+                        <img src="https://i.imgur.com/K6z4oCT.png" alt="Disque Denúncia" class="h-full object-contain">
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Disque Denúncia</h3>
+                    <p class="text-gray-600 mb-4">Disque 197 para denúncias anônimas sobre violência contra a mulher.</p>
+                    <div class="bg-purple-600 text-white py-2 px-4 rounded-lg inline-block">
+                        <i class="fas fa-phone mr-2"></i> 197
+                    </div>
+                </div>
+                
+                <!-- SOS Mulher MT -->
+                <div class="emergency-card bg-white p-6 rounded-lg text-center">
+                    <div class="w-24 h-24 mx-auto mb-4 flex items-center justify-center rounded-lg border-4 border-purple-500 p-2">
+                        <img src="https://i.imgur.com/d0Ykfwv.png" alt="SOS Mulher MT" class="h-full object-contain">
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">SOS Mulher MT</h3>
+                    <p class="text-gray-600 mb-4">Aplicativo da Polícia Judiciária Civil de MT para denúncias e pedidos de ajuda.</p>
+                    <div class="flex flex-col space-y-2">
+                        <a href="https://apps.apple.com/br/app/sos-mulher-mt/id1572664486" target="_blank" class="bg-gray-800 text-white py-2 px-4 rounded-lg inline-block hover:bg-gray-900 transition duration-300">
+                            <i class="fab fa-apple mr-2"></i> iOS
+                        </a>
+                        <a href="https://play.google.com/store/apps/details?id=br.gov.mt.pjc.sosmulher&pcampaignid=web_share&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1&pli=1" target="_blank" class="bg-green-600 text-white py-2 px-4 rounded-lg inline-block hover:bg-green-700 transition duration-300">
+                            <i class="fab fa-google-play mr-2"></i> Android
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cartilha Section -->
+    <section id="cartilha" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Cartilha Informativa</h2>
+            
+            <div class="bg-purple-50 p-8 rounded-lg text-center max-w-4xl mx-auto">
+                <div class="mb-8">
+                    <img src="https://i.imgur.com/If5Ld57.png" alt="Caminhando por Elas" class="h-32 mx-auto mb-6">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Feminicídio: Entenda e Previna</h3>
+                    <p class="text-gray-600 mb-6">Esta cartilha traz informações essenciais sobre feminicídio, seus sinais de alerta e como buscar ajuda. Clique no botão abaixo para visualizar o material completo.</p>
+                    
+                    <button id="open-cartilha" class="bg-purple-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-purple-700 transition duration-300">
+                        <i class="fas fa-book-open mr-2"></i> Visualizar Cartilha
+                    </button>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-8 text-left">
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">O que é Feminicídio?</h3>
+                    <p class="text-gray-600">Feminicídio é o assassinato de uma mulher por razões da condição de sexo feminino. Ou seja, quando o crime envolve violência doméstica e familiar, menosprezo ou discriminação à condição de mulher.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Como se Proteger?</h3>
+                    <ul class="list-disc pl-5 space-y-2 text-gray-600">
+                        <li>Registre ocorrências policiais</li>
+                        <li>Peça medidas protetivas</li>
+                        <li>Mantenha rede de apoio informada</li>
+                        <li>Tenha plano de segurança</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-purple-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between">
+                <div class="mb-8 md:mb-0">
+                    <div class="flex items-center mb-4">
+                        <img src="https://i.imgur.com/If5Ld57.png" alt="Caminhando por Elas" class="h-10 mr-3">
+                        <span class="text-xl font-bold">Caminhando por Elas</span>
+                    </div>
+                    <p class="text-purple-200 max-w-md">Nosso objetivo é informar, conscientizar e combater a violência contra a mulher em todas as suas formas.</p>
+                </div>
+                
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+                    <div>
+                        <h4 class="text-lg font-bold mb-4">Links Úteis</h4>
+                        <ul class="space-y-2">
+                            <li><a href="https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/lei/l11340.htm" target="_blank" class="text-purple-200 hover:text-white transition duration-300">Lei Maria da Penha</a></li>
+                            <li><a href="https://www.gov.br/mdh/pt-br/navegue-por-temas/politicas-para-mulheres/ligue-180/enderecos-das-delegacias-da-mulher" target="_blank" class="text-purple-200 hover:text-white transition duration-300">Delegacias da Mulher</a></li>
+                            <li><a href="https://portalcemulher.tjmt.jus.br/" target="_blank" class="text-purple-200 hover:text-white transition duration-300">Apoio Psicológico</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold mb-4">Ajuda</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#ajuda" class="text-purple-200 hover:text-white transition duration-300">Números de Emergência</a></li>
+                            <li><a href="#cartilha" class="text-purple-200 hover:text-white transition duration-300">Cartilha Informativa</a></li>
+                            <li><a href="#informativos" class="text-purple-200 hover:text-white transition duration-300">Sinais de Violência</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold mb-4">Contato</h4>
+                        <ul class="space-y-2">
+                            <li><a href="https://www.instagram.com/caminhandoporelas/" target="_blank" class="text-purple-200 hover:text-white transition duration-300">Instagram</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-purple-700 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-purple-200 mb-4 md:mb-0">© 2025 Caminhando por Elas. Todos os direitos reservados.</p>
+                <div class="flex space-x-6">
+                    <a href="https://www.instagram.com/caminhandoporelas/" target="_blank" class="text-purple-200 hover:text-white transition duration-300">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Help Button -->
+    <div class="fixed bottom-6 right-6">
+        <a href="#ajuda" class="bg-purple-600 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-lg hover:bg-purple-700 transition duration-300">
+            <i class="fas fa-exclamation-triangle text-2xl"></i>
+        </a>
+    </div>
+
+    <!-- Cartilha Modal -->
+    <div id="cartilha-modal" class="modal fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 opacity-0 pointer-events-none">
+        <div class="modal-content bg-white rounded-lg shadow-xl w-full max-w-6xl max-h-[90vh] overflow-hidden">
+            <div class="flex justify-between items-center bg-purple-600 text-white px-6 py-4">
+                <h3 class="text-xl font-bold">Cartilha: Feminicídio</h3>
+                <button id="close-cartilha" class="text-white hover:text-gray-200">
+                    <i class="fas fa-times text-2xl"></i>
+                </button>
+            </div>
+            <div class="p-6">
+                <iframe src="https://pdfhost.io/v/fmXLJ2rMRb_FeminiciÌdio" class="w-full h-[70vh] border border-gray-200 rounded-lg"></iframe>
+                <div class="mt-4 text-center">
+                    <a href="https://pdfhost.io/v/fmXLJ2rMRb_FeminiciÌdio" target="_blank" class="bg-purple-600 text-white font-bold py-2 px-6 rounded-lg inline-block hover:bg-purple-700 transition duration-300">
+                        <i class="fas fa-download mr-2"></i> Baixar Cartilha
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Cartilha Modal
+        const cartilhaModal = document.getElementById('cartilha-modal');
+        const openCartilhaBtn = document.getElementById('open-cartilha');
+        const closeCartilhaBtn = document.getElementById('close-cartilha');
+
+        openCartilhaBtn.addEventListener('click', () => {
+            cartilhaModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        closeCartilhaBtn.addEventListener('click', () => {
+            cartilhaModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+
+        // Close modal when clicking outside
+        cartilhaModal.addEventListener('click', (e) => {
+            if (e.target === cartilhaModal) {
+                cartilhaModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+<p style="border-radius: 8px; text-align: center; font-size: 12px; color: #fff; margin-top: 16px;position: fixed; left: 8px; bottom: 8px; z-index: 10; background: rgba(0, 0, 0, 0.8); padding: 4px 8px;">Made with <img src="https://enzostvs-deepsite.hf.space/logo.svg" alt="DeepSite Logo" style="width: 16px; height: 16px; vertical-align: middle;display:inline-block;margin-right:3px;filter:brightness(0) invert(1);"><a href="https://enzostvs-deepsite.hf.space" style="color: #fff;text-decoration: underline;" target="_blank" >DeepSite</a> - 🧬 <a href="https://enzostvs-deepsite.hf.space?remix=lucx19/projeto" style="color: #fff;text-decoration: underline;" target="_blank" >Remix</a></p><p style="border-radius: 8px; text-align: center; font-size: 12px; color: #fff; margin-top: 16px;position: fixed; left: 8px; bottom: 8px; z-index: 10; background: rgba(0, 0, 0, 0.8); padding: 4px 8px;">Made with <img src="https://enzostvs-deepsite.hf.space/logo.svg" alt="DeepSite Logo" style="width: 16px; height: 16px; vertical-align: middle;display:inline-block;margin-right:3px;filter:brightness(0) invert(1);"><a href="https://enzostvs-deepsite.hf.space" style="color: #fff;text-decoration: underline;" target="_blank" >DeepSite</a> - 🧬 <a href="https://enzostvs-deepsite.hf.space?remix=caminhandoporelas/caminhandoporelas" style="color: #fff;text-decoration: underline;" target="_blank" >Remix</a></p></body>
+</html>
